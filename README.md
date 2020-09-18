@@ -1,10 +1,12 @@
 # ajax 代码自动生成器
+Bootstrap + vue + ajax
 ****   
 - 传入参数自动生成 data，或者 query string 参数    
 - 支持在线测试  ， 并显示回传的数据  
 - 支持自定义参数
 
-项目示范地址：[https://kl-skeleton.github.io/ajax-generator/](https://kl-skeleton.github.io/ajax-generator/)
+# 项目演示地址：
+[https://kl-skeleton.github.io/ajax-generator/](https://kl-skeleton.github.io/ajax-generator/)
 
 # 示例
 
