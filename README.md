@@ -4,6 +4,8 @@
 - 支持在线测试  ， 并显示回传的数据  
 - 支持自定义参数
 
+项目示范地址：[https://kl-skeleton.github.io/ajax-generator/](https://kl-skeleton.github.io/ajax-generator/)
+
 # 示例
 
 找到任意一个接口
