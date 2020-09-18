@@ -1,0 +1,396 @@
+<!doctype html>
+<!-- 下面是网站源码 -->
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+
+</head>
+
+<body>
+
+    <div class=" py-5 px-4" id="app">
+        <div class="row">
+            <div class="col">
+
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Ajax 代码自动生成</h5>
+                                <p class="card-text">输入指定参数，自动生成ajax代码：以下参数皆为测试参数</p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+
+                            <div class="card-body">
+                                <h5 class="card-title">参数：</h5>
+                                <ul class="list-group list-group-flush">
+
+
+
+                                    <li class="list-group-item">
+
+                                        <div class="row">
+
+                                            <div class="col">
+                                                <div class="input-group ">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">url</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="https://....."
+                                                        v-model='url'>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="margin-top: 20px;">
+
+
+
+
+
+                                            <div class="col">
+                                                <div class="input-group ">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"
+                                                            id="basic-addon1">请求类型(type)</span>
+                                                    </div>
+                                                    <select class="form-control" v-model='type'>
+                                                        <option>get</option>
+                                                        <option>post</option>
+                                                    </select>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col">
+                                                <div class="input-group ">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"
+                                                            id="basic-addon1">异步/同步(asyc)</span>
+                                                    </div>
+                                                    <select class="form-control" v-model='asyc'>
+                                                        <option></option>
+                                                        <option>true</option>
+                                                        <option>false</option>
+                                                    </select>
+                                                </div>
+
+                                            </div>
+
+
+
+
+                                        </div>
+
+                                        <div class="row" style="margin-top: 20px;">
+
+                                            <div class="col">
+                                                <div class="input-group ">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"
+                                                            id="basic-addon1">发送数据类型(contentType)</span>
+                                                    </div>
+                                                    <select class="form-control" v-model='contentType'>
+                                                        <option></option>
+                                                        <option>application/json</option>
+                                                        <option>text/xml</option>
+                                                        <option>application/x-www-form-urlencoded</option>
+                                                        <option>multipart/form-data</option>
+                                                    </select>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col">
+                                                <div class="input-group ">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"
+                                                            id="basic-addon1">接收数据类型(dataType)</span>
+                                                    </div>
+                                                    <select class="form-control" v-model='dataType'>
+                                                        <option></option>
+                                                        <option>json</option>
+                                                        <option>text</option>
+                                                        <option>html</option>
+                                                        <option>script</option>
+                                                        <option>jsonp</option>
+
+
+                                                    </select>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row" style="margin-top: 20px;">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        查询数据 <br>
+                                                        (Query String)<br>
+                                                        格式：<br>
+                                                        key : value<br>
+                                                    </span>
+
+                                                </div>
+                                                <textarea class="form-control" aria-label="With textarea"
+                                                    v-model='queryString'></textarea>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row" style="margin-top: 20px;">
+                                            <div class="card">
+
+                                                <div class="card-body nopadding">
+                                                    {{formQueryData()}}
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="row" style="margin-top: 20px;">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        提交数据 <br>
+                                                        (Form String)<br>
+                                                        格式：<br>
+                                                        key : value<br>
+                                                    </span>
+
+                                                </div>
+                                                <textarea class="form-control" aria-label="With textarea"
+                                                    v-model='formString'></textarea>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row" style="margin-top: 20px;">
+                                            <div class="card ">
+
+                                                <div class="card-body nopadding">
+                                                    <pre>{{formStringData()}}</pre>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+
+
+
+                                    </li>
+
+
+                                </ul>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="col">
+                <div class="card">
+
+                    <div class="card-body">
+                        <h5 class="card-title">结果</h5>
+                        <pre class="form-control result" style="background-color: #F8F8FF;overflow: auto;height: 100%;">
+                            <code>{{result()}}</code>
+                        </pre>
+                        <div class="row">
+
+                            <button type="button" class="btn btn-primary col-md-3 offset-md-8 runajax"
+                                @click='runAjax()'>在线测试</button>
+
+                        </div>
+                        
+
+                        <div class="spinner-border result-running" role="status" >
+                            <span class="sr-only">Loading...</span>
+                        </div>
+ 
+                    </div>
+                    <div class="card-body">
+                        
+                        <pre class="form-control result-data" style="background-color: #F8F8FF;overflow: auto;height: 100%;">
+                             
+                        </pre>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+
+    <script>
+
+        var vue = new Vue({
+            el: '#app',
+            data: {
+                type: 'get',
+                url: 'http://musicapi.leanapp.cn/comment/music',
+                asyc: true,
+                contentType: '',
+                dataType: '',
+                queryString: 'id: 186016\n\
+limit: 1',
+                formString: '',
+
+   
+
+                response: '',
+            },
+            methods: {
+                
+                runAjax() {
+                    $('.runajax').attr('disabled') == undefined ? $('.runajax').attr('disabled', 'true') : ''
+                    $('.result-running').show();
+                    $('.result-data').hide();
+
+                    let ajax_data = {
+                        type: this.type,
+                        url: this.url + '?' + this.formQueryData(),
+                        success: function (r) {
+                            $('.result-data').text(JSON.stringify(r, null, 4))
+                            $('.runajax').removeAttr('disabled')
+                            $('.result-running').hide();
+                            $('.result-data').show();
+                        }
+                    }
+
+                    this.contentType == '' ? '' : ajax_data.contentType = this.contentType
+                    this.dataType == '' ? '' : ajax_data.dataType = this.dataType
+                    this.asyc == '' ? '' : ajax_data.asyc = this.asyc
+                    this.formString == '' ? '' : ajax_data.data = this.formStringData()
+                    console.log(ajax_data);
+
+                    $.ajax(ajax_data);
+
+
+
+                },
+                //格式化数据
+                formQueryData() {
+                    return this.queryString.replace(/: /g, "=").replace(/\s+/g, "&")
+                },
+                formStringData() {
+                    if (this.formString == '') return '';
+                    else return "\n    {\n        " + this.formString.replace(/ /g, "\"").replace(/\s+/g, "\",\n        ") + "\"\n    }"
+                },
+                showParams() {
+                    let str = "";
+                    this.asyc == '' ? '' : str += '    asyc:' + this.asyc + ',\n'
+                    this.contentType == '' ? '' : str += '    contentType:"' + this.contentType + '",\n'
+                    this.dataType == '' ? '' : str += '    dataType:"' + this.dataType + '",\n'
+                    this.formString == '' ? '' : str += '    data:' + this.formStringData() + ',\n'
+                    return str;
+                },
+                result() {
+
+                    return '\n\
+$.ajax({\n\
+    type: "'+ this.type + '",\n\
+    url: "'+ this.url + (this.queryString == '' ?'':'?') + this.formQueryData() + '",\n\
+'+ this.showParams() + '\
+    success: function (response) {\n\
+        console.log(response)\n\
+    }\n\
+});';
+                }
+            }
+        });
+
+
+
+
+
+
+
+    </script>
+
+
+    <style>
+        pre {
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
+        }
+
+        #container {
+            background-color: white;
+            padding: 50px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .card {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .result-data,.result-running{
+            display: none;
+        }
+
+
+        .nopadding{
+            padding: 8px;
+        }
+
+        html,
+        body {
+
+            background: #F8F8FF;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</body>
+
+
+
+</html>
