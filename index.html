@@ -1,5 +1,4 @@
 <!doctype html>
-<!-- 下面是网站源码 -->
 <html lang="en">
 
 <head>
@@ -17,30 +16,37 @@
 
 <body>
 
-    <div class=" py-5 px-4" id="app">
+    <div class=" py-1 px-4" id="app">
+
+
+
         <div class="row">
+            <div class="col-md-6 offset-md-3 py-4" style="text-align: center;">
+                <h1 class="card-title">Ajax-Generator</h1>
+                <h4>Ajax代码自动生成器</h4>
+
+                <a class="button gray has-icon" href="https://github.com/KL-Skeleton/ajax-generator" target="_blank" rel="noopener">
+                    <svg style="width: 50px;height: 50px;"  aria-labelledby="simpleicons-github-dark-icon" lang="" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-github-dark-icon" lang="en">GitHub Dark icon</title><path fill="#7F8C8D" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+                </a>
+                <p><a href="https://github.com/KL-Skeleton/ajax-generator">演示文档(doc)</a></p>
+
+            </div>
+        </div>
+
+        <div class="row">
+
+
+
             <div class="col">
 
-                <div class="row">
-                    <div class="col">
-                        <div class="card">
-
-                            <div class="card-body">
-                                <h5 class="card-title">Ajax 代码自动生成</h5>
-                                <p class="card-text">输入指定参数，自动生成ajax代码：以下参数皆为测试参数</p>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
 
                 <div class="row">
                     <div class="col">
-                        <div class="card">
+                        <div class="card shadow-sm">
 
                             <div class="card-body">
-                                <h5 class="card-title">参数：</h5>
+                                <h5 class="card-title">参数(params)</h5>
+                                <p>以下参数皆为测试参数，具体参数以现实中实例为准</p>
                                 <ul class="list-group list-group-flush">
 
 
@@ -54,8 +60,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">url</span>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="https://....."
-                                                        v-model='url'>
+                                                    <input type="text" class="form-control" v-model='url'>
                                                 </div>
 
                                             </div>
@@ -95,6 +100,8 @@
                                                 </div>
 
                                             </div>
+
+
 
 
 
@@ -146,9 +153,11 @@
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">
-                                                        查询数据 <br>
+                                                        查询数据:<br>
+                                                        格式:
+                                                    </span>
+                                                    <span class="input-group-text">
                                                         (Query String)<br>
-                                                        格式：<br>
                                                         key : value<br>
                                                     </span>
 
@@ -175,8 +184,10 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">
                                                         提交数据 <br>
-                                                        (Form String)<br>
                                                         格式：<br>
+                                                    </span>
+                                                    <span class="input-group-text">
+                                                        (Form String)<br>
                                                         key : value<br>
                                                     </span>
 
@@ -190,13 +201,15 @@
                                         <div class="row" style="margin-top: 20px;">
                                             <div class="card ">
 
-                                                <div class="card-body nopadding">
-                                                    <pre>{{formStringData()}}</pre>
+                                                <div class="card-body" style="padding: 0px;">
+                                                    <pre>    {{formStringData()}}</pre>
                                                 </div>
                                             </div>
 
 
                                         </div>
+                                        <button type="button" class="btn btn-primary col-md-2 offset-md-10 runajax"
+                                            @click='clearData()'>清空</button>
 
 
 
@@ -217,11 +230,12 @@
             </div>
 
             <div class="col">
-                <div class="card">
+                <div class="card shadow-sm">
 
                     <div class="card-body">
-                        <h5 class="card-title">结果</h5>
-                        <pre class="form-control result" style="background-color: #F8F8FF;overflow: auto;height: 100%;">
+                        <h5 class="card-title">结果(result)</h5>
+                        <pre contenteditable class="form-control result"
+                            style="background-color: #F8F8FF;overflow: auto;height: 100%;">
                             <code>{{result()}}</code>
                         </pre>
                         <div class="row">
@@ -230,17 +244,18 @@
                                 @click='runAjax()'>在线测试</button>
 
                         </div>
-                        
 
-                        <div class="spinner-border result-running" role="status" >
+
+                        <div class="spinner-border result-running" role="status">
                             <span class="sr-only">Loading...</span>
                         </div>
- 
+
                     </div>
                     <div class="card-body">
-                        
-                        <pre class="form-control result-data" style="background-color: #F8F8FF;overflow: auto;height: 100%;">
-                             
+
+                        <pre class="form-control result-data"
+                            style="background-color: #F8F8FF;overflow: auto;height: 100%;">
+
                         </pre>
                     </div>
 
@@ -253,7 +268,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script typet="text/javascript" src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -270,20 +285,31 @@
             el: '#app',
             data: {
                 type: 'get',
-                url: 'http://musicapi.leanapp.cn/comment/music',
-                asyc: true,
+                url: 'https://musicapi.leanapp.cn/comment/music',
+                asyc: '',
                 contentType: '',
                 dataType: '',
                 queryString: 'id: 186016\n\
 limit: 1',
-                formString: '',
+                formString: 'id: 186016\n\
+limit: 1',
 
-   
+
 
                 response: '',
             },
             methods: {
-                
+                //清空数据
+                clearData() {
+
+                    this.asyc = ''
+                    this.contentType = ''
+                    this.dataType = ''
+                    this.queryString = ''
+                    this.formString = ''
+                    this.response = ''
+                },
+
                 runAjax() {
                     $('.runajax').attr('disabled') == undefined ? $('.runajax').attr('disabled', 'true') : ''
                     $('.result-running').show();
@@ -317,7 +343,7 @@ limit: 1',
                 },
                 formStringData() {
                     if (this.formString == '') return '';
-                    else return "\n    {\n        " + this.formString.replace(/ /g, "\"").replace(/\s+/g, "\",\n        ") + "\"\n    }"
+                    else return "{\n        " + this.formString.replace(/ /g, "\"").replace(/\s+/g, "\",\n        ") + "\"\n    }"
                 },
                 showParams() {
                     let str = "";
@@ -332,7 +358,7 @@ limit: 1',
                     return '\n\
 $.ajax({\n\
     type: "'+ this.type + '",\n\
-    url: "'+ this.url + (this.queryString == '' ?'':'?') + this.formQueryData() + '",\n\
+    url: "'+ this.url + (this.queryString == '' ? '' : '?') + this.formQueryData() + '",\n\
 '+ this.showParams() + '\
     success: function (response) {\n\
         console.log(response)\n\
@@ -368,23 +394,25 @@ $.ajax({\n\
         }
 
         .card {
+
             width: 100%;
             margin-bottom: 20px;
         }
 
-        .result-data,.result-running{
+        .result-data,
+        .result-running {
             display: none;
         }
 
 
-        .nopadding{
+        .nopadding {
             padding: 8px;
         }
 
         html,
         body {
 
-            background: #F8F8FF;
+            background: white;
             width: 100%;
             height: 100%;
         }
